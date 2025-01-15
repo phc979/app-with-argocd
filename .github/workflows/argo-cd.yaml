@@ -67,7 +67,7 @@ jobs:
           cat ./manifest/argocd-app.yaml  # 결과 이전
           DOCKERHUB_USERNAME="${{ secrets.DOCKERHUB_USERNAME }}"
           GITHUB_SHA="${{ github.sha }}"
-          sed -i "s%image: ${DOCKERHUB_USERNAME}/app-with-argocd:[A-z0-9]*%image: ${DOCKERHUB_USERNAME}/app-with-argocd:${GITHUB_SHA}%" ./manifest/argocd-app.yaml
+          sed -i "s%image: dockerlecture/app-with-argocd:[A-z0-9]*%image: ${DOCKERHUB_USERNAME}/app-with-argocd:${GITHUB_SHA}%" ./manifest/argocd-app.yaml
           cat ./manifest/argocd-app.yaml  # 결과 확인
 
       - name: Commit and push changes
